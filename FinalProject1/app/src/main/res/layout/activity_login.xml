@@ -14,7 +14,7 @@
         />
 
     <EditText
-        android:id="@+id/edittextUsernameLogin"
+        android:id="@+id/edittextUsername"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -26,7 +26,7 @@
         />
 
     <EditText
-        android:id="@+id/edittextPasswordLogin"
+        android:id="@+id/edittextPassword"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -39,10 +39,10 @@
         />
 
     <TextView
-        android:id="@+id/textviewRegisterLogin"
+        android:id="@+id/textviewRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create new account"
+        android:text="Register Now"
         android:textColor="@android:color/holo_red_light"
         android:clickable="true"
         android:focusable="true"

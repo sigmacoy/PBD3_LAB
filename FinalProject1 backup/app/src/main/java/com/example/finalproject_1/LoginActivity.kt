@@ -6,7 +6,33 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
+//class LoginActivity : Activity() {
+//
+//    private lateinit var edittextUsernameLogin: EditText
+//    private lateinit var edittextPasswordLogin: EditText
+//    private lateinit var buttonLogin: Button
+//    private lateinit var textviewRegisterLogin: TextView
+//
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        setContentView(R.layout.activity_login)
+//
+//        edittextUsernameLogin = findViewById(R.id.edittextUsernameLogin)
+//        edittextPasswordLogin = findViewById(R.id.edittextPasswordLogin)
+//        buttonLogin = findViewById(R.id.buttonLogin)
+//        textviewRegisterLogin = findViewById(R.id.textviewRegisterLogin)
+//
+//        buttonLogin.setOnClickListener {
+//            val intent = Intent(this, DashboardActivity::class.java)
+//            startActivity(intent)
+//        }
+//
+//        textviewRegisterLogin.setOnClickListener {
+//            val intent = Intent(this, RegisterActivity::class.java)
+//            startActivity(intent)
+//        }
+//    }
+//}
 
 class LoginActivity : Activity(){
     override fun onCreate(bundle: Bundle ?){
@@ -16,37 +42,21 @@ class LoginActivity : Activity(){
         val edittextPassword = findViewById<EditText>(R.id.edittextPassword);
         val textviewRegister = findViewById<TextView>(R.id.textviewRegister);
         val buttonLogin = findViewById<Button>(R.id.buttonLogin);
-        val email = intent?.getStringExtra("email")
 
         textviewRegister.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent);
         }
-
         buttonLogin.setOnClickListener {
             val username = edittextUsername.text.toString(); // text.toString() is the getter
             val password = edittextPassword.text.toString();
-
-            val usernameRegistered = intent?.getStringExtra("usernameRegistered");
-            val passwordRegistered = intent?.getStringExtra("passwordRegistered");
-
-            if(!username.isNullOrEmpty() &&
-                !password.isNullOrEmpty() &&
-                username == usernameRegistered &&
-                password == passwordRegistered){
+            if(!username.isNullOrEmpty() && !password.isNullOrEmpty()){
                 val intent = Intent(this, DashboardActivity::class.java);
                 intent.putExtra("username", username);
                 intent.putExtra("password", password);
-                intent.putExtra("email", email)
                 startActivity(intent);
             }
-            if(username.isNullOrEmpty() || password.isNullOrEmpty() ){
-                Toast.makeText(this, "Try Again!", Toast.LENGTH_SHORT).show()
-            } else if(username != usernameRegistered ||
-                password != passwordRegistered){
-                Toast.makeText(this, "Incorrect username or password!\nTry again",
-                    Toast.LENGTH_SHORT).show()
-            }
+            // putExtra(key, value) -> is the key-value pair
         }
     }
 }

@@ -1,24 +1,27 @@
 package com.example.finalproject_1
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import androidx.appcompat.app.AppCompatActivity
+import android.widget.TextView
 
-class ProfileActivity : AppCompatActivity() {
-    private var buttonBackToDashboard: Button? = null
+class ProfileActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
-        buttonBackToDashboard = findViewById(R.id.buttonBackToDashboard)
+        // textviewProfileMessage
+        // textviewProfileEmail
 
-        buttonBackToDashboard?.setOnClickListener {
-            val intent = Intent(
-                this@ProfileActivity,
-                DashboardActivity::class.java
-            )
-            startActivity(intent)
+        val textviewProfileMessage = findViewById<TextView>(R.id.textviewProfileMessage);
+        intent?.getStringExtra("username")?.let {
+            textviewProfileMessage.text = "$it"; // this is the setter
         }
+
+        val textviewProfileEmail = findViewById<TextView>(R.id.textviewProfileEmail);
+        intent?.getStringExtra("email")?.let {
+            textviewProfileEmail.text = "$it"; // this is the setter
+        }
+
     }
 }

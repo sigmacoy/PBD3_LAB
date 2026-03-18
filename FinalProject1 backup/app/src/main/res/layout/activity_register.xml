@@ -14,7 +14,7 @@
         />
 
     <EditText
-        android:id="@+id/edittextUsername"
+        android:id="@+id/edittextUsernameRegister"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -25,7 +25,7 @@
         />
 
     <EditText
-        android:id="@+id/edittextPassword"
+        android:id="@+id/edittextPasswordRegister"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -38,26 +38,14 @@
         />
 
     <EditText
-        android:id="@+id/edittextReEnterPassword"
+        android:id="@+id/edittextReEnterPasswordRegister"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:hint="Confirm password"
+        android:hint="Re-enter Password"
         android:padding="16dp"
         android:layout_marginTop="10dp"
         android:inputType="textPassword"
-        android:importantForAutofill="no"
-        android:autofillHints=""
-        />
-
-    <EditText
-        android:id="@+id/edittextEmail"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:hint="Email"
-        android:padding="16dp"
-        android:layout_marginTop="10dp"
         android:importantForAutofill="no"
         android:autofillHints=""
         />
