@@ -44,9 +44,9 @@
         android:layout_height="wrap_content"
         android:text="Register Now"
         android:textColor="@android:color/holo_red_light"
-        android:textStyle="bold"
         android:clickable="true"
         android:focusable="true"
+        android:background="?attr/selectableItemBackground"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         />

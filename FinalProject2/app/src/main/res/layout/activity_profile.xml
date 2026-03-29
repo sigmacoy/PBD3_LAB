@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageLoginLogo"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:src="@drawable/my_logo"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
+        />
+
+    <TextView
+        android:id="@+id/textviewProfileMessage"
+        android:layout_width="300dp"
+        android:textAlignment="center"
+        android:layout_height="wrap_content"
+        android:text="placehold username"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:textSize="35dp"
+        android:layout_marginTop="50dp"
+        />
+
+    <TextView
+        android:id="@+id/textviewProfileEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:text="placehold email"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        android:layout_marginTop="50dp"
+        />
+</LinearLayout>

@@ -14,16 +14,14 @@ class DashboardActivity : Activity(){
         setContentView(R.layout.activity_dashboard);
 
         val textviewWelcome = findViewById<TextView>(R.id.textviewWelcome);
-        intent?.getStringExtra("username")?.let {
+        val storedPref = getSharedPreferences("user", MODE_PRIVATE);
+
+        storedPref.getString("usernameRegistered", "NULL")?.let {
             textviewWelcome.text = "Welcome $it."; // this is the setter
         }
 
-        val username = intent?.getStringExtra("username")
-        val email = intent?.getStringExtra("email")
         textviewWelcome.setOnClickListener {
             val intent = Intent(this, ProfileActivity::class.java);
-            intent.putExtra("username", username);
-            intent.putExtra("email", email);
             startActivity(intent);
         }
     }

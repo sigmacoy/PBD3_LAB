@@ -14,13 +14,16 @@ class ProfileActivity : Activity() {
         // textviewProfileEmail
 
         val textviewProfileMessage = findViewById<TextView>(R.id.textviewProfileMessage);
-        intent?.getStringExtra("username")?.let {
+
+        val storedPref = getSharedPreferences("user", MODE_PRIVATE);
+        storedPref.getString("usernameRegistered", "NULL")?.let {
             textviewProfileMessage.text = it; // this is the setter
         }
 
         val textviewProfileEmail = findViewById<TextView>(R.id.textviewProfileEmail);
-        intent?.getStringExtra("email")?.let {
-            textviewProfileEmail.text = it; // this is the setter
+
+        storedPref.getString("email", "NULL")?.let {
+            textviewProfileEmail.text = "$it"; // this is the setter
         }
 
     }
