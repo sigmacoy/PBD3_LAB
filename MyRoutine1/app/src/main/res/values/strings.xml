@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">MyRoutine</string>
+    <string name="login_title">Welcome to MyRoutine</string>
+    <string name="login_hint">Enter your name</string>
+    <string name="login_button">Get Started</string>
+    <string name="add_task_title">Add New Habit</string>
+    <string name="task_name_hint">Habit name (e.g. Drink Water)</string>
+    <string name="reminder_hint">Reminder time (optional, e.g. 20:00)</string>
+    <string name="save_button">Add Habit</string>
+    <string name="empty_state">No tasks yet. Tap + to add your first habit!</string>
+    <string name="streak_label">day streak</string>
+</resources>
