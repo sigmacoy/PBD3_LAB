@@ -1,38 +1,25 @@
 package com.example.myroutine1.screens.login
 
-import android.content.SharedPreferences
+import com.example.myroutine1.app.MyRoutineApp
 
 class LoginPresenter(
-    private var view: LoginContract.View?,
-    private val prefs: SharedPreferences
+    private val view: LoginContract.View,
+    private val model: LoginModel,
+    private val app: MyRoutineApp
 ) : LoginContract.Presenter {
 
-    override fun onLoginClicked(username: String) {
-        view?.clearErrors()
-        val trimmed = username.trim()
-        when {
-            trimmed.isBlank() -> view?.showUsernameError("Please enter your name to continue.")
-            trimmed.length < 2 -> view?.showUsernameError("Name must be at least 2 characters.")
-            else -> {
-                prefs.edit()
-                    .putString(KEY_USERNAME, trimmed)
-                    .putBoolean(KEY_LOGGED_IN, true)
-                    .apply()
-                view?.navigateToTaskList()
+    override fun onLoginClicked(username: String, password: String) {
+        view.clearErrors()
+        when (val result = model.validate(username, password)) {
+            is LoginModel.ValidationResult.Success -> {
+                app.saveUser(result.name)
+                view.showSuccessToast()
+                view.navigateToTaskList()
+            }
+            is LoginModel.ValidationResult.Error -> {
+                view.showErrorToast(result.message)
+                view.showInputError(result.message)
             }
         }
-    }
-
-    override fun isAlreadyLoggedIn(): Boolean =
-        prefs.getBoolean(KEY_LOGGED_IN, false)
-
-    override fun onDestroy() {
-        view = null
-    }
-
-    companion object {
-        const val PREFS_NAME = "myroutine_user"
-        const val KEY_USERNAME = "username"
-        const val KEY_LOGGED_IN = "logged_in"
     }
 }

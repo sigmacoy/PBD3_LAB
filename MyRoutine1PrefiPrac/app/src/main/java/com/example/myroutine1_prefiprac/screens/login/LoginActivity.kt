@@ -1,16 +1,13 @@
-package com.example.myroutine1.screens.login
+package com.example.myroutine1_prefiprac.screens.login
 
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.myroutine1.R
-import com.example.myroutine1.screens.tasklist.TaskListActivity
-import com.example.myroutine1.utils.app
-import com.example.myroutine1.utils.getButtonView
-import com.example.myroutine1.utils.getEditTextValue
-import com.example.myroutine1.utils.start
-import com.example.myroutine1.utils.toast
+import com.example.myroutine1_prefiprac.R
+import com.example.myroutine1_prefiprac.utils.getButtonView
+import com.example.myroutine1_prefiprac.utils.getEditTextValue
+import com.example.myroutine1_prefiprac.utils.toast
 
 class LoginActivity : AppCompatActivity(), LoginContract.View {
     private lateinit var presenter: LoginPresenter
@@ -21,7 +18,7 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
         setContentView(R.layout.activity_login)
 
         textviewError = findViewById(R.id.textviewError)
-        presenter = LoginPresenter(this, LoginModel(), app())
+        presenter = LoginPresenter(this, LoginModel())
 
         getButtonView(R.id.buttonLogin).setOnClickListener {
             val username = getEditTextValue(R.id.edittextUsername)
@@ -30,8 +27,8 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
         }
     }
 
-    override fun showInputError(message: String) {
-        textviewError.text = message
+    override fun showInputError(msg: String) {
+        textviewError.text = msg
         textviewError.visibility = View.VISIBLE
     }
 
@@ -41,9 +38,5 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
     }
 
     override fun showSuccessToast() = toast("Login successful!")
-
-    override fun showErrorToast(message: String) = toast("Login failed: $message")
-
-    override fun navigateToTaskList() = start(TaskListActivity::class.java)
-
+    override fun showErrorToast(msg: String) = toast("Login failed: $msg")
 }

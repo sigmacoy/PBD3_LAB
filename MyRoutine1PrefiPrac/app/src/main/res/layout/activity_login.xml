@@ -29,7 +29,6 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:hint="Your name"
-        android:inputType="textPersonName|textCapWords"
         android:maxLines="1"
         android:padding="12dp"
         android:gravity="center_vertical"
@@ -59,8 +58,9 @@
         android:id="@+id/buttonLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Get Started"
+        android:text="Login"
         android:backgroundTint="#1A237E"
         android:textColor="#FFFFFF"
         android:padding="14dp" />
+
 </LinearLayout>

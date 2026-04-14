@@ -2,14 +2,13 @@ package com.example.myroutine1.screens.login
 
 interface LoginContract {
     interface View {
-        fun showUsernameError(message: String)
+        fun showInputError(message: String)
         fun clearErrors()
         fun navigateToTaskList()
-        fun setLoginButtonEnabled(enabled: Boolean)
+        fun showSuccessToast()
+        fun showErrorToast(message: String)
     }
     interface Presenter {
-        fun onLoginClicked(username: String)
-        fun isAlreadyLoggedIn(): Boolean
-        fun onDestroy()
+        fun onLoginClicked(username: String, password: String)
     }
 }
