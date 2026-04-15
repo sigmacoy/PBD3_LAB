@@ -1,15 +1,15 @@
 package com.example.myroutine1_prefiprac.screens.login
 
+import android.app.Activity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import com.example.myroutine1_prefiprac.R
 import com.example.myroutine1_prefiprac.utils.getButtonView
 import com.example.myroutine1_prefiprac.utils.getEditTextValue
 import com.example.myroutine1_prefiprac.utils.toast
 
-class LoginActivity : AppCompatActivity(), LoginContract.View {
+class LoginActivity : Activity(), LoginContract.View {
     private lateinit var presenter: LoginPresenter
     private lateinit var textviewError: TextView
 
@@ -25,6 +25,10 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
             val password = getEditTextValue(R.id.edittextPassword)
             presenter.onLoginClicked(username, password)
         }
+
+        getButtonView(R.id.buttonRegister).setOnClickListener {
+            presenter.onRegisterClicked()
+        }
     }
 
     override fun showInputError(msg: String) {
@@ -39,4 +43,5 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
 
     override fun showSuccessToast() = toast("Login successful!")
     override fun showErrorToast(msg: String) = toast("Login failed: $msg")
+    override fun showRegisterToast() = toast("To the Register screen!")
 }

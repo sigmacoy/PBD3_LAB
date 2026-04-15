@@ -17,4 +17,6 @@ class LoginPresenter(
             }
         }
     }
+
+    override fun onRegisterClicked() = view.showRegisterToast()
 }

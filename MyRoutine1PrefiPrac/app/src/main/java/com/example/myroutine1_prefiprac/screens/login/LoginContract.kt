@@ -6,8 +6,10 @@ interface LoginContract {
         fun showInputError(msg: String)
         fun showSuccessToast()
         fun showErrorToast(msg: String)
+        fun showRegisterToast()
     }
     interface Presenter {
         fun onLoginClicked(u: String, p: String)
+        fun onRegisterClicked()
     }
 }
